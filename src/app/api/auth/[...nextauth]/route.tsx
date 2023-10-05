@@ -54,6 +54,7 @@ const authOptions: NextAuthOptions = {
       return user;
     },
   },
+  secret: process.env.NEXTAUTH_SECRET
 };
 
 const handler = NextAuth(authOptions);
