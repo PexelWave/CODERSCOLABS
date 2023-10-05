@@ -60,20 +60,6 @@ const myTheme = createTheme({
   ],
 });
 
-const state = EditorState.create({
-  doc: "my source code",
-  extensions: [githubDark, javascript({ jsx: true })],
-});
-
-const view = new EditorView({
-  parent: document.querySelector("#editor")!,
-  state,
-});
-
-const today = () => {
-  const date = new Date();
-  return date.toDateString();
-};
 
 function Editor() {
   const [value, setValue] = React.useState(
@@ -121,7 +107,7 @@ function DialogModal() {
       <DialogTrigger asChild>
         <Button variant="outline" className="flex items-center gap-2">
           <BiLogoJavascript />
-          {state.doc} <TbEdit />
+          unititled <TbEdit />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
