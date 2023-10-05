@@ -6,7 +6,7 @@ type Props = {}
 
 const page = (props: Props) => {
   return (
-    <main className='pt-[10vh] flex'>
+    <main className='pt-[10vh] flex flex-col md:flex-row'>
         <EditorSideBar />
         <div className='flex-1'>
         <Editor />

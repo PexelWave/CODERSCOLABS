@@ -79,7 +79,7 @@ function Editor() {
   const [value, setValue] = React.useState(
     `
     const myName = "Perfect Nkosi";
-    let age = 150; // I'm old as f#ck!😂😂😂
+    let age = 150; // I'm an old soul!😂😂😂
     let isCool = true;
     
     const getYearOfBirth = () => new Date().getFullyear() - age;
@@ -104,7 +104,7 @@ function Editor() {
 
       {/* CODE MIRROR */}
       <CodeMirror
-        className="text-2xl"
+        className="text-xl md:text-2xl"
         value={value}
         height="100%"
         theme={myTheme}
