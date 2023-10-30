@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import ControlledEditor from "@monaco-editor/react";
 import CodeEditorMenu from '@/components/Colabs/multi-language/CodeEditorMenu'
@@ -5,9 +7,7 @@ import EditorProvider from '@/contexts/MultiLanguageEditorProvider'
 import { useMultiLanguageEditor } from '@/hooks/useMultiLanguageEditor'
 import { useTheme } from 'next-themes'
 
-type Props = {}
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <EditorProvider>
       <main>
