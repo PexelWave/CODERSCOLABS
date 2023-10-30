@@ -8,24 +8,22 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useEditor } from "@/hooks/useMultiLanguageEditor"
 import { ACTIONS } from "@/contexts/MultiLanguageEditorProvider"
 
 export default function EditorThemeDropdown() {
-  const { state, dispatch } = useEditor()
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant='ghost'>{state.theme}
+        <Button variant='ghost'>
           <span className="sr-only">Set Theme</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => dispatch({type: ACTIONS.SET_THEME, payload: "vs-light"})}>
+        <DropdownMenuItem >
           Visual Studio Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => dispatch({type: ACTIONS.SET_THEME, payload: "vs-dark"})}>
+        <DropdownMenuItem>
         Visual Studio Dark
         </DropdownMenuItem>
       </DropdownMenuContent>
