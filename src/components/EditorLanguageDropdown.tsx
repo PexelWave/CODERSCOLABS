@@ -25,7 +25,7 @@ const EditorLanguageDropdown = () => {
         <SelectGroup>
           <SelectLabel>Supported Languages</SelectLabel>
           {langNames.map((lang) => (
-            <SelectItem value={lang}>{lang}</SelectItem>
+            <SelectItem  key={lang} value={lang}>{lang}</SelectItem>
           ))}
         </SelectGroup>
       </SelectContent>
