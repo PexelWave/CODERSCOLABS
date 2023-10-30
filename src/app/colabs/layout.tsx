@@ -1,4 +1,4 @@
-import EditorProvider from "@/contexts/MultiLanguageEditorProvider";
+import CodeEditorProvider from "@/providers/CodeEditorProvider";
 import React from "react";
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
 };
 
 const layout = (props: Props) => {
-  return <>{props.children}</>;
+  return <CodeEditorProvider>{props.children}</CodeEditorProvider>;
 };
 
 export default layout;
