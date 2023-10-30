@@ -1,13 +1,6 @@
 "use client";
 import { HTMLPreview } from "@/components/Colabs/Results";
 import ControlledEditor, { useMonaco } from "@monaco-editor/react";
-import {
-  emmetHTML,
-  emmetCSS,
-  emmetJSX,
-  expandAbbreviation,
-  registerCustomSnippets,
-} from "emmet-monaco-es";
 import { useTheme } from "next-themes";
 import React, { useState } from "react";
 import { FaHtml5, FaCss3, FaJs, FaPlay, FaUpload, FaGlobe } from "react-icons/fa";
