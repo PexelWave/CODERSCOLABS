@@ -32,7 +32,7 @@ const tabs: FrontEndEditorTab[] = [
   },
 ];
 
-const page = (props: Props) => {
+const Page = (props: Props) => {
   const { state, dispatch } = useFrontEndEditor();
   const [activeEditor, setActiveEditor] = useState(0);
   const [previewOpen, setPreviewOpen] = useState(false);
@@ -166,4 +166,4 @@ function Editor({ language, code, fontSize }: EditorType) {
   );
 }
 
-export default page;
+export default Page;
