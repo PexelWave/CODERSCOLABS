@@ -21,14 +21,14 @@ interface Action {
 }
 
 const initialState: FrontEndEditorState = {
-  htmlCode: "<!-- NOTE: The is no need to include the html, head, and body tags. That's already taken care of. CODE COLABS Team -->",
+  htmlCode: "",
   cssCode: "",
   jsCode: "",
   fontSize: 16,
-};
+} as FrontEndEditorState;
 
 type ContextType = {
-  state: typeof initialState;
+  state: FrontEndEditorState;
   dispatch: (action: Action) => void;
 };
 
@@ -49,8 +49,7 @@ const reducer = (state: FrontEndEditorState, action: Action) => {
       return { ...state, jsCode: action.payload };
     }
     case ACTION_TYPE.SET_FONT_SIZE: {
-      const fontSizeInt = parseInt(action.payload);
-      return { ...state, fontSize: fontSizeInt > 40 ? 40 : action.payload };
+      return { ...state, fontSize: state.fontSize > 40 ? 40 : parseInt(action.payload) };
     }
     default: {
       return state;

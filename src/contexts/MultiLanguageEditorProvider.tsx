@@ -49,7 +49,7 @@ const reducer = (state: EditorState, action: EditorAction) => {
     case ACTIONS.SET_THEME:
         return { ...state, theme: action.payload };
     case ACTIONS.SET_FONTSIZE:
-        return { ...state, fontSize: action.payload };
+        return { ...state,  fontSize: state.fontSize > 40 ? 40 : parseInt(action.payload) };
     default:
       return state;
   }
