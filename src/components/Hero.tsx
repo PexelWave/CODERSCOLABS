@@ -6,31 +6,31 @@ import heroIllustrationData from "@/assets/hero-illustration-animation.json";
 import { Button } from "./ui/button";
 import { signIn, useSession } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from 'react-icons/fa'
+import { FaGithub } from "react-icons/fa";
+import Link from "next/link";
 
-type Props = {};
-
-const Hero = (props: Props) => {
+const Hero = () => {
   const { status, data: session } = useSession();
   return (
     <header className="container pt-[10vh] flex items-center flex-col-reverse lg:flex-row">
       <div className="text-center lg:text-left">
-        <h2 className="title">
+        <h2>
           {status === "authenticated"
             ? `Hello👋 ${session?.user?.name} Welcome Back!`
             : "Unlock Your Potential in the World of Coding"}
         </h2>
-        <h4 className="subtitle">
-          {" "}
+        <p>
           Learn, Collaborate, and Create with CODERS
           <span className="text-secondary">COLABS</span>
-        </h4>
+        </p>
 
         <div className="mt-12">
           {status === "authenticated" ? (
-            <Button className="bg-[#0AFC07] text-white font-bold px-12 py-4">
-              Enrol
-            </Button>
+            <Link href="/dashboard">
+              <Button className="bg-[#0AFC07] text-white font-bold px-12 py-4">
+                Dashboard
+              </Button>
+            </Link>
           ) : (
             <div className="flex flex-col md:flex-row gap-4">
               <Button
@@ -45,7 +45,7 @@ const Hero = (props: Props) => {
                 className="bg-muted hover:bg-muted/50 text-slate-800 dark:text-white font-bold px-12 py-4"
                 onClick={() => signIn("github")}
               >
-              <FaGithub className="mr-2 h-4 w-4" />
+                <FaGithub className="mr-2 h-4 w-4" />
                 Log in with github
               </Button>
             </div>

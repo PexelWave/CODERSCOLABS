@@ -10,7 +10,8 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CODE COLABS",
-  description: "Learn how to code through interactive and and hands-on learning",
+  description:
+    "Learn how to code through interactive and and hands-on learning",
 };
 
 export default function RootLayout({
@@ -22,12 +23,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(montserrat.className, "bg-background")}>
         <NextAuthProvider>
-          <ThemeProvider attribute="class"
+          <ThemeProvider
+            attribute="class"
             defaultTheme="system"
             enableSystem
-            disableTransitionOnChange>
+            disableTransitionOnChange
+          >
             <Navbar />
-            {children}
+            <div className="pt-[10vh]">{children}</div>
           </ThemeProvider>
         </NextAuthProvider>
       </body>

@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 
-import { cn } from "@/lib/utils";
+import { cn, colabs } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -28,7 +28,7 @@ import { tutorials } from "@/lib/utils";
 export default function Navbar() {
   const { data: session } = useSession();
   return (
-    <nav className="fixed w-full z-[50] bg-background">
+    <nav className="fixed w-full z-50 bg-background">
       <div className="container flex justify-between items-center h-[10vh]">
         <NavigationMenu className={cn("flex items-center gap-3")}>
           <Link href="/" className="inline-block">
@@ -89,23 +89,25 @@ export default function Navbar() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/playground" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Playground
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuTrigger>Colabs</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[600px] ">
+                  {colabs.map((colab) => (
+                    <ListItem
+                      key={colab.title}
+                      title={colab.title}
+                      href={colab.href}
+                    >
+                      {colab.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/tutorials" legacyBehavior passHref>
+              <Link href="/commnunity" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Blog
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/contact" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Contact
+                  Community
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
@@ -132,12 +134,12 @@ export default function Navbar() {
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+>(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
-      <NavigationMenuLink asChild>
-        <a
+        <Link
           ref={ref}
+          href={href!}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
@@ -148,8 +150,7 @@ const ListItem = React.forwardRef<
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </a>
-      </NavigationMenuLink>
+        </Link>
     </li>
   );
 });

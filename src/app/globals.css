@@ -86,18 +86,23 @@
   p {
     @apply text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed mt-2 mb-4;
   }
+
+::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+::-webkit-scrollbar-track {
+    @apply bg-transparent rounded-lg;
+  }
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-lg;
+  }
 }
 
 
 @layer components {
   .container {
     @apply max-w-7xl mx-auto px-6;
-  }
-
-  .title {
-    @apply text-slate-800 dark:text-slate-200;
-  }
-  .subtitle {
-    @apply text-slate-600 dark:text-slate-400;
-  }
+  } 
 }

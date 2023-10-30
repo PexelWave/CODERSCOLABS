@@ -50,8 +50,8 @@ export default function SideDrawer() {
         </SheetHeader>
         <Separator />
         <div className="flex flex-col items-start my-6 gap-3 dark:text-slate-300 text-slate-800">
-          <Link className={linkStyles} href="/playground">
-            Playground
+          <Link className={linkStyles} href="/colabs">
+            Colabs
           </Link>
           <Collapsible
             open={isOpen}

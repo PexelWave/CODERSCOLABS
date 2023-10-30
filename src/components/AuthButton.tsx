@@ -65,9 +65,9 @@ export default function AuthButton() {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Link href="/profile" className="flex">
+                <Link href="/editprofile" className="flex">
                   <User className="mr-2 h-4 w-4" />
-                  <span>{session?.user?.name}</span>
+                  <span>Edit Profile</span>
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
@@ -128,7 +128,7 @@ export default function AuthButton() {
     <div className="flex items-center gap-4">
       <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost">Login</Button>
+        <Button className="bg-secondary text-white font-black hover:dark:bg-white hover:dark:text-slate-950">Login</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="border-muted">
       <DropdownMenuItem className="flex items-center gap-2" onClick={() => signIn("github")}>

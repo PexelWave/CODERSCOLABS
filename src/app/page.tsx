@@ -1,14 +1,23 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter } from 'next/navigation'
+import { useSession } from "next-auth/react";
 import Hero from "@/components/Hero";
 import Lottie from "lottie-react";
 import pairProgrammingAnimation from "@/assets/pair-programming-animation.json";
-import pickCourseAnimation from "@/assets/web-dev-animation.json"
+
 import Features from "@/components/Features";
-import Courses from "@/components/Courses";
-import { Button } from "@/components/ui/button";
+
 
 export default function Home() {
+  const { status } = useSession()
+  const router = useRouter()
+  useEffect(() => {
+    if (status === 'authenticated') {
+      router.push('/dashboard')
+    }
+  }, [])
   return (
     <main>
       <Hero />
